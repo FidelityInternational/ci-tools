@@ -24,4 +24,5 @@ RUN curl -L https://github.com/pivotalservices/cf-mgmt/releases/download/v0.0.87
 
 COPY verify_image.sh /tmp/verify_image.sh
 RUN /tmp/verify_image.sh \
+  && chmod +x /tmp/verify_image.sh \
   && rm /tmp/verify_image.sh
