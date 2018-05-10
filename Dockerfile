@@ -22,5 +22,9 @@ RUN curl -L https://github.com/pivotalservices/cf-mgmt/releases/download/v0.0.87
 RUN curl -L https://github.com/pivotalservices/cf-mgmt/releases/download/v0.0.87/cf-mgmt-config-linux -o /usr/local/bin/cf-mgmt-config \
   && chmod +x /usr/local/bin/cf-mgmt-config
 
+RUN wget https://s3.amazonaws.com/bosh-cli-artifacts/bosh-cli-2.0.48-linux-amd64 \
+    && mv bosh-cli-2.0.48-linux-amd64 /usr/bin/bosh \
+    && chmod +x /usr/bin/bosh
+
 COPY verify_image.sh /tmp/verify_image.sh
 RUN /tmp/verify_image.sh
