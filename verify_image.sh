@@ -9,3 +9,4 @@ which cf-mgmt
 which cf-mgmt-config
 which ruby
 which bosh
+which sshpass
