@@ -11,3 +11,4 @@ which ruby
 which bosh
 which sshpass
 which make
+which git
