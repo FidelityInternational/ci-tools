@@ -1,7 +1,7 @@
 FROM ubuntu
 
 RUN apt-get update \
-  && apt-get install -y unzip openssl curl wget vim ruby sshpass build-essential git \
+  && apt-get install -y unzip openssl curl wget vim ruby sshpass build-essential git rsync \
   && apt-get clean
 
 RUN curl -L https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 -o /usr/local/bin/jq \
