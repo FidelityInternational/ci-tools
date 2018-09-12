@@ -1,5 +1,8 @@
 FROM ubuntu
 
+## Have to use this due to default interactive tzdata config
+ARG DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get update \
   && apt-get install -y unzip openssl curl wget vim ruby sshpass build-essential git rsync tzdata \
   && apt-get clean
