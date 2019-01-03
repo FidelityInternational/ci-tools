@@ -14,15 +14,15 @@ RUN curl -L https://github.com/mikefarah/yq/releases/download/1.14.1/yq_linux_am
   && chmod +x /usr/local/bin/yaml \
   && ln -s /usr/local/bin/yaml /usr/local/bin/yq
 
-RUN curl -L https://github.com/cloudfoundry-incubator/credhub-cli/releases/download/1.7.5/credhub-linux-1.7.5.tgz -o credhub-linux-1.7.5.tgz \
-  && tar xvf credhub-linux-1.7.5.tgz -C /usr/local/bin/ \
+RUN curl -L https://github.com/cloudfoundry-incubator/credhub-cli/releases/download/2.2.0/credhub-linux-2.2.0.tgz -o credhub-linux-2.2.0.tgz \
+  && tar xvf credhub-linux-2.2.0.tgz -C /usr/local/bin/ \
   && chmod +x /usr/local/bin/credhub \
-  && rm credhub-linux-1.7.5.tgz
+  && rm credhub-linux-2.2.0.tgz
 
-RUN curl -L https://github.com/pivotalservices/cf-mgmt/releases/download/v0.0.87/cf-mgmt-linux -o /usr/local/bin/cf-mgmt \
+RUN curl -L https://github.com/pivotalservices/cf-mgmt/releases/download/v1.0.12/cf-mgmt-linux -o /usr/local/bin/cf-mgmt \
   && chmod +x /usr/local/bin/cf-mgmt
 
-RUN curl -L https://github.com/pivotalservices/cf-mgmt/releases/download/v0.0.87/cf-mgmt-config-linux -o /usr/local/bin/cf-mgmt-config \
+RUN curl -L https://github.com/pivotalservices/cf-mgmt/releases/download/v1.0.12/cf-mgmt-config-linux -o /usr/local/bin/cf-mgmt-config \
   && chmod +x /usr/local/bin/cf-mgmt-config
 
 RUN wget https://s3.amazonaws.com/bosh-cli-artifacts/bosh-cli-2.0.48-linux-amd64 \
