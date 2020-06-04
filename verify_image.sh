@@ -13,3 +13,4 @@ which sshpass
 which make
 which git
 which rsync
+which aws
