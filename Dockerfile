@@ -10,9 +10,12 @@ RUN apt-get update \
 RUN curl -L https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 -o /usr/local/bin/jq \
   && chmod +x /usr/local/bin/jq
 
-RUN curl -L https://github.com/mikefarah/yq/releases/download/1.14.1/yq_linux_amd64 -o /usr/local/bin/yaml  \
+RUN curl -L https://github.com/mikefarah/yq/releases/download/1.14.1/yq_linux_amd64 -o /usr/local/bin/yaml \
   && chmod +x /usr/local/bin/yaml \
   && ln -s /usr/local/bin/yaml /usr/local/bin/yq
+
+RUN curl -L https://github.com/mikefarah/yq/releases/download/3.2.1/yq_linux_amd64 -o /usr/local/bin/yq3 \
+  && chmod +x /usr/local/bin/yq3
 
 RUN curl -L https://github.com/cloudfoundry-incubator/credhub-cli/releases/download/2.2.0/credhub-linux-2.2.0.tgz -o credhub-linux-2.2.0.tgz \
   && tar xvf credhub-linux-2.2.0.tgz -C /usr/local/bin/ \
