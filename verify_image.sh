@@ -2,7 +2,6 @@
 
 set -eux
 
-which yaml
 which jq
 which yq
 which cf-mgmt
