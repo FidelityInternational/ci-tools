@@ -18,10 +18,10 @@ RUN curl -L https://github.com/cloudfoundry-incubator/credhub-cli/releases/downl
   && chmod +x /usr/local/bin/credhub \
   && rm credhub-linux-2.9.0.tgz
 
-RUN curl -L https://github.com/pivotalservices/cf-mgmt/releases/download/v1.0.43/cf-mgmt-linux -o /usr/local/bin/cf-mgmt \
+RUN curl -L https://github.com/vmware-tanzu-labs/cf-mgmt/releases/download/v1.0.43/cf-mgmt-linux -o /usr/local/bin/cf-mgmt \
   && chmod +x /usr/local/bin/cf-mgmt
 
-RUN curl -L https://github.com/pivotalservices/cf-mgmt/releases/download/v1.0.43/cf-mgmt-config-linux -o /usr/local/bin/cf-mgmt-config \
+RUN curl -L https://github.com/vmware-tanzu-labs/cf-mgmt/releases/download/v1.0.43/cf-mgmt-config-linux -o /usr/local/bin/cf-mgmt-config \
   && chmod +x /usr/local/bin/cf-mgmt-config
 
 RUN wget https://github.com/cloudfoundry/bosh-cli/releases/download/v6.4.1/bosh-cli-6.4.1-linux-amd64 \
