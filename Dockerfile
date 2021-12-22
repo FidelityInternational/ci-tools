@@ -24,8 +24,8 @@ RUN curl -L https://github.com/vmware-tanzu-labs/cf-mgmt/releases/download/v1.0.
 RUN curl -L https://github.com/vmware-tanzu-labs/cf-mgmt/releases/download/v1.0.43/cf-mgmt-config-linux -o /usr/local/bin/cf-mgmt-config \
   && chmod +x /usr/local/bin/cf-mgmt-config
 
-RUN wget https://github.com/cloudfoundry/bosh-cli/releases/download/v6.4.1/bosh-cli-6.4.1-linux-amd64 \
-    && mv bosh-cli-6.4.1-linux-amd64 /usr/bin/bosh \
+RUN wget https://github.com/cloudfoundry/bosh-cli/releases/download/v6.4.7/bosh-cli-6.4.7-linux-amd64 \
+    && mv bosh-cli-6.4.7-linux-amd64 /usr/bin/bosh \
     && chmod +x /usr/bin/bosh
 
 COPY verify_image.sh /tmp/verify_image.sh
