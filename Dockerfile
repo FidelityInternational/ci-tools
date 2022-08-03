@@ -10,7 +10,7 @@ RUN apt-get update \
 RUN curl -L https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 -o /usr/local/bin/jq \
   && chmod +x /usr/local/bin/jq
 
-RUN curl -L https://github.com/mikefarah/yq/releases/download/v4.9.6/yq_linux_amd64 -o /usr/local/bin/yq \
+RUN curl -L https://github.com/mikefarah/yq/releases/download/v4.26.1/yq_linux_amd64 -o /usr/local/bin/yq \
   && chmod +x /usr/local/bin/yq
 
 RUN curl -L https://github.com/cloudfoundry/credhub-cli/releases/download/2.9.3/credhub-linux-2.9.3.tgz -o credhub-linux-2.9.3.tgz \
