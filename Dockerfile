@@ -3,30 +3,26 @@ FROM ubuntu
 ## Have to use this due to default interactive tzdata config
 ARG DEBIAN_FRONTEND=noninteractive 
 
+ENV BOSH_VERSION="7.5.2"
+ENV CF_MGMT_VERSION="1.0.51"
+ENV CREDHUB_VERSION "2.9.25"
+ENV YQ_VERSION="4.26.1"
+
 RUN apt-get update \
-  && apt-get install -y unzip openssl curl wget vim ruby sshpass build-essential git rsync tzdata dnsutils awscli \
+  && apt-get install -y jq unzip openssl curl wget vim ruby sshpass build-essential git rsync tzdata dnsutils awscli \
   && apt-get clean
 
-RUN curl -L https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 -o /usr/local/bin/jq \
-  && chmod +x /usr/local/bin/jq
+RUN curl -fL "https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64" -o /usr/local/bin/yq && chmod +x /usr/local/bin/yq
 
-RUN curl -L https://github.com/mikefarah/yq/releases/download/v4.26.1/yq_linux_amd64 -o /usr/local/bin/yq \
-  && chmod +x /usr/local/bin/yq
+RUN curl -fL "https://github.com/cloudfoundry/credhub-cli/releases/download/${CREDHUB_VERSION}/credhub-linux-amd64-${CREDHUB_VERSION}.tgz" | tar -zx -C /usr/local/bin && \
+chmod +x /usr/local/bin/credhub
 
-RUN curl -L https://github.com/cloudfoundry/credhub-cli/releases/download/2.9.3/credhub-linux-2.9.3.tgz -o credhub-linux-2.9.3.tgz \
-  && tar xvf credhub-linux-2.9.3.tgz -C /usr/local/bin/ \
-  && chmod +x /usr/local/bin/credhub \
-  && rm credhub-linux-2.9.3.tgz
+RUN curl -fL "https://github.com/vmware-tanzu-labs/cf-mgmt/releases/download/v${CF_MGMT_VERSION}/cf-mgmt-linux" -o /usr/local/bin/cf-mgmt && chmod +x /usr/local/bin/cf-mgmt
 
-RUN curl -L https://github.com/vmware-tanzu-labs/cf-mgmt/releases/download/v1.0.51/cf-mgmt-linux -o /usr/local/bin/cf-mgmt \
-  && chmod +x /usr/local/bin/cf-mgmt
+RUN curl -fL "https://github.com/vmware-tanzu-labs/cf-mgmt/releases/download/v${CF_MGMT_VERSION}/cf-mgmt-config-linux" -o /usr/local/bin/cf-mgmt-config && chmod +x /usr/local/bin/cf-mgmt-config
 
-RUN curl -L https://github.com/vmware-tanzu-labs/cf-mgmt/releases/download/v1.0.51/cf-mgmt-config-linux -o /usr/local/bin/cf-mgmt-config \
-  && chmod +x /usr/local/bin/cf-mgmt-config
-
-RUN wget https://github.com/cloudfoundry/bosh-cli/releases/download/v6.4.17/bosh-cli-6.4.17-linux-amd64 \
-    && mv bosh-cli-6.4.17-linux-amd64 /usr/bin/bosh \
-    && chmod +x /usr/bin/bosh
+RUN curl -fL "https://s3.amazonaws.com/bosh-cli-artifacts/bosh-cli-${BOSH_VERSION}-linux-amd64" -o /usr/local/bin/bosh && \
+  chmod +x /usr/local/bin/bosh
 
 COPY verify_image.sh /tmp/verify_image.sh
 RUN /tmp/verify_image.sh
