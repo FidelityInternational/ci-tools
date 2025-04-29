@@ -3,9 +3,9 @@ FROM ubuntu:jammy
 ## Have to use this due to default interactive tzdata config
 ARG DEBIAN_FRONTEND=noninteractive 
 
-ENV BOSH_VERSION="7.8.6"
+ENV BOSH_VERSION="7.9.5"
 ENV CF_MGMT_VERSION="1.0.51"
-ENV CREDHUB_VERSION "2.9.41"
+ENV CREDHUB_VERSION "2.9.45"
 ENV YQ_VERSION="4.26.1"
 
 RUN apt-get update \
