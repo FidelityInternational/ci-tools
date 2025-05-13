@@ -4,11 +4,12 @@ FROM ubuntu:jammy
 ARG DEBIAN_FRONTEND=noninteractive 
 
 ENV BOSH_VERSION="7.9.5"
-ENV CF_MGMT_VERSION="1.0.51"
+ENV CF_MGMT_VERSION="1.0.106"
 ENV CREDHUB_VERSION "2.9.45"
 ENV YQ_VERSION="4.26.1"
 
 RUN apt-get update \
+  && apt-get upgrade -y \
   && apt-get install -y jq unzip openssl curl wget vim ruby sshpass build-essential git rsync tzdata dnsutils awscli \
   && apt-get clean
 
